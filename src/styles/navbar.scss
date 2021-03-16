@@ -1,0 +1,178 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.navbar {
+  background-color: #250404;
+  border-bottom: 1px solid #cdaa8a;
+}
+
+.navbar a {
+  color: white !important;
+  margin: 0px;
+  transition: 0.5s;
+}
+.navbar a:hover {
+  color: #cdaa8a !important;
+}
+
+.navbar-brand,
+.nav-item a {
+  margin-right: 0px;
+}
+
+.nav-left {
+  width: 25%;
+}
+
+.nav-right {
+  width: 25%;
+}
+
+.nav-between a {
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.nav-between {
+  width: 50%;
+}
+.nav-icons {
+  margin-left: 50px;
+  width: 50%;
+  object-position: 0px 12px;
+}
+.nav-right a {
+  margin: 0 16px;
+}
+
+.dropdown-menu {
+  background-color: #250404 !important;
+  top: 130%;
+  padding: 0px;
+}
+
+.dropdown-item.active {
+  background-color: #250404 !important;
+  margin: 8px auto 0px auto !important;
+  line-height: 36px;
+}
+
+.dropdown-item p {
+  font-family: 'Noto Sans TC';
+  font-weight: 300;
+  // font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+  color: white;
+  transition: 0.35s;
+  padding: 6px 0px;
+}
+.dropdown-menu :hover {
+  background-color: #250404;
+  color: #cdaa8a;
+}
+.dropdown-item :hover {
+  background-color: #250404;
+  color: #cdaa8a;
+}
+.dropdown-item {
+  height: auto;
+  // top: 150%;
+  padding: 0;
+  margin: 0px auto 0px auto !important;
+  line-height: 36px;
+}
+
+.drop-border {
+  border-top: 1px solid #cdaa8a;
+}
+
+.dropdown-item a {
+  margin: 0px;
+}
+
+.dropdown-item p {
+  text-align: center;
+  line-height: 100%;
+  margin: auto auto;
+  line-height: 40px;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #cdaa8a !important;
+  margin: 0px;
+}
+.alex-padding {
+  padding: 15px !important;
+}
+.alex-navbarHeight {
+  height: 90px !important;
+  padding: 25px 8px !important;
+}
+.nav-right-icons {
+  display: none;
+}
+.nav-member {
+  display: none;
+}
+.show {
+  background-color: #250404;
+}
+@media screen and (max-width: 1200px) {
+  .alex-navbarHeight {
+    height: auto !important;
+    padding: 25px 8px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .h-90 {
+    display: none;
+  }
+
+  .nav-position {
+    transition: none;
+    position: initial;
+  }
+  .nav-icons {
+    display: none;
+  }
+  .nav-between {
+    width: 70%;
+    margin: 0 auto;
+  }
+  #nav-member {
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .nav-member-link {
+    margin-left: 32px;
+  }
+  .nav-member {
+    // text-align: center;
+    margin: 0 auto;
+    padding-left: 70%;
+    display: block;
+    color: white;
+  }
+  .nav-ul {
+    // margin-left: auto;
+    padding-left: 64px;
+    // display: block;
+    text-align: left;
+  }
+  .nav-right {
+    display: none;
+  }
+  .nav-right-icons a {
+    font-size: 20px;
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+  }
+  .nav-right-icons {
+    margin-left: auto;
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    width: 80px;
+  }
+}

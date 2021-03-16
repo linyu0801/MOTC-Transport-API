@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import React, { useState } from 'react'
+//pages
+import ScenicSpot from './pages/ScenicSpot'
+import NotFoundPage from './pages/NotFoundPage'
+import City from './pages/City'
+
+//components
+import Maincontain from './component/Maincontain'
+import MyNavbar from './component/MyNavbar'
 
 function App() {
+  const [changecity, setChangecity] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <>
+        <MyNavbar changecity={changecity} setChangecity={setChangecity} />
+        <Maincontain>
+          <Switch>
+            <Route path="/scenicSpot/:city">
+              <City changecity={changecity} setChangecity={setChangecity} />
+            </Route>
+            <Route path="/scenicSpot">
+              <ScenicSpot />
+            </Route>
+
+            <Route path="*">
+              <NotFoundPage />
+            </Route>
+          </Switch>
+        </Maincontain>
+      </>
+    </Router>
+  )
 }
 
-export default App;
+export default App
