@@ -2,29 +2,24 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 function City(props) {
   const [rows, setRows] = useState([])
-  const { changecity, setChangecity } = props
   let n = 1
   let { city } = useParams()
 
   async function fetchcity() {
     const url =
       `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${city}` +
-      `?$top=${30}`
+      `?$top=${30}&$skip=${30 * (n - 1)}`
     const request = new Request(url, {
       method: 'GET',
     })
     const response = await fetch(request)
     const data = await response.json()
     console.log('回傳資料 : ', data)
-    if (changecity === false) {
-      if (data.length >= 30) {
-        setRows((prevState) => {
-          return [...prevState, ...data]
-        })
-        n = n + 1
-      } else {
-        setRows(data)
-      }
+    if (data.length >= 30) {
+      setRows((prevState) => {
+        return [...prevState, ...data]
+      })
+      n = n + 1
     } else {
       setRows(data)
     }
@@ -52,11 +47,8 @@ function City(props) {
     observer.observe(observe_target)
   }, [])
   useEffect(() => {
-    if (changecity === true) {
-      fetchcity()
-      setChangecity(!changecity)
-    }
-  }, [changecity])
+    console.log('rows : ', rows)
+  }, [rows])
   let ScienicDisplay = (
     <>
       {rows.map((value, i) => (
@@ -68,7 +60,7 @@ function City(props) {
                   src={
                     value.Picture.PictureUrl1
                       ? `${value.Picture.PictureUrl1}`
-                      : 'imgnotfound.png'
+                      : 'http://localhost:3000/imgnotfound.png'
                   }
                   className="fish-product-img"
                   alt={`${value.Name}` + `圖片`}
@@ -92,12 +84,10 @@ function City(props) {
       <div id="TARGET_ELEMENT"></div>
     </>
   )
-  useEffect(() => {
-    console.log('rows : ', rows)
-  }, [rows])
+
   return (
     <>
-      <img src="imgnotfound.png" alt="" />
+      {/* <img src="http://localhost:3000/logo192.png" alt="" className="bg-img" /> */}
       <div className="d-flex flex-wrap">{ScienicDisplay}</div>
     </>
   )

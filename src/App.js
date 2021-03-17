@@ -10,16 +10,16 @@ import Maincontain from './component/Maincontain'
 import MyNavbar from './component/MyNavbar'
 
 function App() {
-  const [changecity, setChangecity] = useState(false)
+  // const [changecity, setChangecity] = useState(false)
 
   return (
     <Router>
       <>
-        <MyNavbar changecity={changecity} setChangecity={setChangecity} />
+        <MyNavbar />
         <Maincontain>
           <Switch>
             <Route path="/scenicSpot/:city">
-              <City changecity={changecity} setChangecity={setChangecity} />
+              <City />
             </Route>
             <Route path="/scenicSpot">
               <ScenicSpot />

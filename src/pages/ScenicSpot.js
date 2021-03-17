@@ -59,7 +59,7 @@ function ScenicSpot(props) {
                   src={
                     value.Picture.PictureUrl1
                       ? `${value.Picture.PictureUrl1}`
-                      : 'imgnotfound.png'
+                      : 'http://localhost:3000/imgnotfound.png'
                   }
                   className="fish-product-img"
                   alt={`${value.Name}` + `圖片`}
@@ -83,7 +83,6 @@ function ScenicSpot(props) {
   }, [rows])
   return (
     <>
-      <img src="imgnotfound.png" alt="" />
       <div className="d-flex flex-wrap">{ScienicDisplay}</div>
     </>
   )

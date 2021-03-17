@@ -6,7 +6,7 @@ import { NavLink, withRouter, Link } from 'react-router-dom'
 import '../styles/navbar.scss'
 
 function MyNavbar(props) {
-  const { changecity, setChangecity } = props
+  // const { changecity, setChangecity } = props
 
   const city = [
     'Taipei',
@@ -40,11 +40,8 @@ function MyNavbar(props) {
         expand="lg"
         variant="dark"
         id="navbar"
-        // fixed="top"
       >
-        <Navbar.Brand as={NavLink} to="/" className="nav-left">
-          <img src="../icons/icons-row.svg" alt="" className="nav-icons" />
-        </Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/" className="nav-left"></Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -61,20 +58,17 @@ function MyNavbar(props) {
                 className="nav-member-link "
               >
                 {city.map((value, index) => (
-                  <NavDropdown.Item
-                    as={NavLink}
-                    // to={`/scenicSpot/${city[index]}?`}
-                    className="nav-ul "
-                    onClick={() => {
-                      setChangecity(true)
-                      props.history.push(`/scenicSpot/${city[index]}?`)
-                    }}
-                  >
+                  <Nav.Link href={`/scenicSpot/${city[index]}`}>
                     {`${city[index]}`}
-                  </NavDropdown.Item>
+                    {/* <NavDropdown.Item
+                      // as={NavLink}
+                      className="nav-ul "
+                     }
+                    >
+                    </NavDropdown.Item> */}
+                  </Nav.Link>
                 ))}
               </NavDropdown>
-              {/* <NavDropdown title="各縣市景點" id="nav-member"></NavDropdown> */}
             </Nav>
           </Nav>
         </Navbar.Collapse>
