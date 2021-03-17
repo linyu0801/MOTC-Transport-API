@@ -13,7 +13,7 @@ function App() {
   // const [changecity, setChangecity] = useState(false)
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL + '/'}>
       <>
         <MyNavbar />
         <Maincontain>
