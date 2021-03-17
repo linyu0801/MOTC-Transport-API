@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/MOTC-Transport-API/static/css/main.d32a0fbb.chunk.css",
+    "main.js": "/MOTC-Transport-API/static/js/main.f283ddfd.chunk.js",
+    "main.js.map": "/MOTC-Transport-API/static/js/main.f283ddfd.chunk.js.map",
+    "runtime-main.js": "/MOTC-Transport-API/static/js/runtime-main.3b4244a0.js",
+    "runtime-main.js.map": "/MOTC-Transport-API/static/js/runtime-main.3b4244a0.js.map",
+    "static/js/2.a66945cf.chunk.js": "/MOTC-Transport-API/static/js/2.a66945cf.chunk.js",
+    "static/js/2.a66945cf.chunk.js.map": "/MOTC-Transport-API/static/js/2.a66945cf.chunk.js.map",
+    "static/js/3.8d10f260.chunk.js": "/MOTC-Transport-API/static/js/3.8d10f260.chunk.js",
+    "static/js/3.8d10f260.chunk.js.map": "/MOTC-Transport-API/static/js/3.8d10f260.chunk.js.map",
+    "index.html": "/MOTC-Transport-API/index.html",
+    "static/css/main.d32a0fbb.chunk.css.map": "/MOTC-Transport-API/static/css/main.d32a0fbb.chunk.css.map",
+    "static/js/2.a66945cf.chunk.js.LICENSE.txt": "/MOTC-Transport-API/static/js/2.a66945cf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3b4244a0.js",
+    "static/js/2.a66945cf.chunk.js",
+    "static/css/main.d32a0fbb.chunk.css",
+    "static/js/main.f283ddfd.chunk.js"
+  ]
+}
