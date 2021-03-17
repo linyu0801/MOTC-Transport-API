@@ -60,7 +60,7 @@ function City(props) {
                   src={
                     value.Picture.PictureUrl1
                       ? `${value.Picture.PictureUrl1}`
-                      : 'http://localhost:3000/imgnotfound.png'
+                      : '/imgnotfound.png'
                   }
                   className="fish-product-img"
                   alt={`${value.Name}` + `圖片`}
