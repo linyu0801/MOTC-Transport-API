@@ -8,7 +8,10 @@
 body {
   overflow-x: hidden;
 }
-
+.h-60 {
+  height: 60%;
+  width: 100%;
+}
 .fish-card {
   position: relative;
   display: flex;

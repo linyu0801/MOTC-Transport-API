@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 function City(props) {
   const [rows, setRows] = useState([])
+  // const [change, setChange] = useState(false)
   let n = 1
   let { city } = useParams()
-
-  async function fetchcity() {
+  // let change = 0
+  async function fetchcity(city) {
     const url =
       `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${city}` +
       `?$top=${30}&$skip=${30 * (n - 1)}`
@@ -15,6 +16,12 @@ function City(props) {
     const response = await fetch(request)
     const data = await response.json()
     console.log('回傳資料 : ', data)
+    // console.log('change :　' + change)
+    // if (change == 1) {
+    //   setRows(data)
+    //   change = 0
+    //   n = 1
+    // } else {
     if (data.length >= 30) {
       setRows((prevState) => {
         return [...prevState, ...data]
@@ -23,6 +30,7 @@ function City(props) {
     } else {
       setRows(data)
     }
+    // }
   }
 
   useEffect(() => {
@@ -37,7 +45,7 @@ function City(props) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           console.log('n :', n)
-          fetchcity()
+          fetchcity(city)
         } else {
           // 只在目標元素離開 viewport 時執行這裡的工作
         }
@@ -49,6 +57,13 @@ function City(props) {
   useEffect(() => {
     console.log('rows : ', rows)
   }, [rows])
+
+  // useEffect(() => {
+  //   // setRows([])
+  //   // change = 1
+  //   // fetchcity(city)
+  //   console.log('後')
+  // }, [city])
   let ScienicDisplay = (
     <>
       {rows.map((value, i) => (
@@ -88,6 +103,7 @@ function City(props) {
   return (
     <>
       {/* <img src="http://localhost:3000/logo192.png" alt="" className="bg-img" /> */}
+      {/* <div className="h-60"></div> */}
       <div className="d-flex flex-wrap">{ScienicDisplay}</div>
     </>
   )
