@@ -13,15 +13,15 @@ function App() {
   // const [changecity, setChangecity] = useState(false)
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <>
         <MyNavbar />
         <Maincontain>
           <Switch>
-            <Route path="/MOTC-Transport-API/scenicSpot/:city">
+            <Route path="/scenicSpot/:city">
               <City />
             </Route>
-            <Route path="/MOTC-Transport-API/scenicSpot">
+            <Route path="/scenicSpot">
               <ScenicSpot />
             </Route>
 
