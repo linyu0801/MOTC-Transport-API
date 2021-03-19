@@ -1,7 +1,7 @@
 function NotFoundPage(props) {
   return (
     <>
-      <h1>404 找不到網頁</h1>
+      <h1>404 找不到網頁123</h1>
     </>
   )
 }
