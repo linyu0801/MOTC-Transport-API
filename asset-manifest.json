@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/MOTC-Transport-API/static/css/main.3856bd86.chunk.css",
-    "main.js": "/MOTC-Transport-API/static/js/main.4e81ccc0.chunk.js",
-    "main.js.map": "/MOTC-Transport-API/static/js/main.4e81ccc0.chunk.js.map",
+    "main.js": "/MOTC-Transport-API/static/js/main.b770f3cb.chunk.js",
+    "main.js.map": "/MOTC-Transport-API/static/js/main.b770f3cb.chunk.js.map",
     "runtime-main.js": "/MOTC-Transport-API/static/js/runtime-main.3b4244a0.js",
     "runtime-main.js.map": "/MOTC-Transport-API/static/js/runtime-main.3b4244a0.js.map",
     "static/js/2.76168e8c.chunk.js": "/MOTC-Transport-API/static/js/2.76168e8c.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3b4244a0.js",
     "static/js/2.76168e8c.chunk.js",
     "static/css/main.3856bd86.chunk.css",
-    "static/js/main.4e81ccc0.chunk.js"
+    "static/js/main.b770f3cb.chunk.js"
   ]
 }
