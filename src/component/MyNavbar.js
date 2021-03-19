@@ -58,8 +58,7 @@ function MyNavbar(props) {
                 className="nav-member-link "
               >
                 {city.map((value, index) => (
-                  {/* <Nav.Link href={`/scenicSpot/${city[index]}`}> */}
-                    <Nav.Link href={`/scenicSpot/${city[index]}`}>
+                  <Nav.Link href={`/scenicSpot/${city[index]}`}>
                     {`${city[index]}`}
                     {/* <NavDropdown.Item
                       // as={NavLink}
