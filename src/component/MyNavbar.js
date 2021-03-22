@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-// 要使用能有active css效果的NavLink元件
-
-import { NavLink, withRouter, Link } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import '../styles/navbar.scss'
 
 function MyNavbar(props) {
-  // const { changecity, setChangecity } = props
-
   const city = [
     'Taipei',
     'NewTaipei',
@@ -32,6 +28,7 @@ function MyNavbar(props) {
     'PenghuCounty',
     'LienchiangCounty',
   ]
+  //紀錄有什麼縣市
   return (
     <>
       <Navbar
@@ -40,6 +37,7 @@ function MyNavbar(props) {
         expand="lg"
         variant="dark"
         id="navbar"
+        key={props.location}
       >
         <Navbar.Brand as={NavLink} to="/" className="nav-left"></Navbar.Brand>
 
@@ -59,15 +57,7 @@ function MyNavbar(props) {
               >
                 {city.map((value, index) => (
                   <Nav.Link as={NavLink} to={`/scenicSpot/${city[index]}`}>
-                    {/* <Nav.Link href={`/scenicSpot/${city[index]}`}> */}
-
                     {`${city[index]}`}
-                    {/* <NavDropdown.Item
-                      // as={NavLink}
-                      className="nav-ul "
-                     }
-                    >
-                    </NavDropdown.Item> */}
                   </Nav.Link>
                 ))}
               </NavDropdown>

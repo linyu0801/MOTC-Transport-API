@@ -4,7 +4,62 @@
   width: 100%;
   background: transparent;
 }
+.fish-aside {
+  animation-delay: 0.7s;
 
+  transition: transform 1.2s, opacity 1.2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  a :hover {
+    color: #cdaa8a;
+  }
+  h4 {
+    white-space: nowrap;
+    margin-bottom: 50px;
+    color: #250404;
+  }
+  ul {
+    font-family: 'Noto Sans TC';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.1rem;
+    list-style: none;
+    padding-inline-start: 0px;
+    color: #250404;
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+    background: white;
+  }
+  ul a:hover {
+    text-decoration: none;
+  }
+  li {
+    font-family: 'Noto Sans TC';
+    font-size: 16px;
+    padding-left: 16px;
+    margin-top: 16px;
+    list-style: none;
+    color: #250404;
+    transition: 0.3s;
+  }
+}
+
+.fish-aside-active {
+  border-left: 6px solid #cdaa8a;
+  margin: 20px 0 0px 0;
+}
+.fish-aside-ul-active {
+  color: #cdaa8a;
+  font-weight: 300;
+  font-family: 'Noto Sans TC';
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+  list-style: none;
+}
 body {
   overflow-x: hidden;
 }

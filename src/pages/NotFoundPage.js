@@ -1,7 +1,9 @@
 function NotFoundPage(props) {
   return (
     <>
-      <h1>404 找不到網頁1223</h1>
+      <div className="d-flex flex-wrap">
+        <h1>首頁</h1>
+      </div>
     </>
   )
 }

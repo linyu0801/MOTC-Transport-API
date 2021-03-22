@@ -1,74 +1,62 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, withRouter } from 'react-router-dom'
+
 function City(props) {
-  const [rows, setRows] = useState([])
-  // const [change, setChange] = useState(false)
+  const [rows, setRows] = useState([]) //狀態 rows 用來儲存回傳資料
   let n = 1
-  let { city } = useParams()
-  // let change = 0
+  //使用url param讀取使用者選取的縣市
+
   async function fetchcity(city) {
     const url =
-      `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${city}` +
+      'https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/' +
+      city +
       `?$top=${30}&$skip=${30 * (n - 1)}`
+    //一次抓三十筆第二次抓30筆時跳過已經抓取過的30筆
     const request = new Request(url, {
       method: 'GET',
     })
     const response = await fetch(request)
     const data = await response.json()
     console.log('回傳資料 : ', data)
-    // console.log('change :　' + change)
-    // if (change == 1) {
-    //   setRows(data)
-    //   change = 0
-    //   n = 1
-    // } else {
-    if (data.length >= 30) {
-      setRows((prevState) => {
-        return [...prevState, ...data]
-      })
-      n = n + 1
-    } else {
-      setRows(data)
-    }
-    // }
+    setRows((prevState) => {
+      return [...prevState, ...data]
+    })
+    n = n + 1
   }
-
+  //Intersection Obeserver API options 控制甚麼情況呼叫callback
+  let options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.75,
+  }
+  let callback = (entries, observer) => {
+    // entries 能拿到所有目標元素進出(intersect)變化的資訊
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // 只在目標元素進入 viewport 時執行這裡的工作
+        console.log('observecity :', props.match.params.city)
+        fetchcity(props.match.params.city)
+      } else {
+        // 只在目標元素離開 viewport 時執行這裡的工作
+      }
+    })
+  }
   useEffect(() => {
     const observe_target = document.querySelector('#TARGET_ELEMENT')
-    let options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.75,
-    }
-    let callback = (entries, observer) => {
-      // entries 能拿到所有目標元素進出(intersect)變化的資訊
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          console.log('n :', n)
-          fetchcity(city)
-        } else {
-          // 只在目標元素離開 viewport 時執行這裡的工作
-        }
-      })
-    }
+
     let observer = new IntersectionObserver(callback, options)
     observer.observe(observe_target)
   }, [])
+
   useEffect(() => {
-    console.log('rows : ', rows)
+    console.log('rows :', rows) //紀錄資料變化
   }, [rows])
 
-  // useEffect(() => {
-  //   // setRows([])
-  //   // change = 1
-  //   // fetchcity(city)
-  //   console.log('後')
-  // }, [city])
   let ScienicDisplay = (
     <>
       {rows.map((value, i) => (
         <>
-          <div key={i} className={`col-xl-4 col-lg-5 col-md-6 `}>
+          <div key={props.city} className={`col-xl-4 col-lg-5 col-md-6 `}>
             <div className="product  fish-card w-100 position-relative">
               <div className="fish-img-box w-100">
                 <img
@@ -104,8 +92,10 @@ function City(props) {
     <>
       {/* <img src="http://localhost:3000/logo192.png" alt="" className="bg-img" /> */}
       {/* <div className="h-60"></div> */}
-      <div className="d-flex flex-wrap">{ScienicDisplay}</div>
+      <div className="row justify-content-center">
+        <div className="d-flex flex-wrap">{ScienicDisplay}</div>
+      </div>
     </>
   )
 }
-export default City
+export default withRouter(City)

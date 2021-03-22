@@ -1,5 +1,10 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+} from 'react-router-dom'
+import React from 'react'
 //pages
 import ScenicSpot from './pages/ScenicSpot'
 import NotFoundPage from './pages/NotFoundPage'
@@ -9,30 +14,34 @@ import City from './pages/City'
 import Maincontain from './component/Maincontain'
 import MyNavbar from './component/MyNavbar'
 
-function App() {
-  // const [changecity, setChangecity] = useState(false)
-
+function App(props) {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <>
-        <MyNavbar />
-        <Maincontain>
-          <Switch>
-            <Route path="/scenicSpot/:city">
-              <City />
-            </Route>
-            <Route path="/scenicSpot">
-              <ScenicSpot />
-            </Route>
+    <div key={props.location.key}>
+      <Router basename={process.env.PUBLIC_URL}>
+        <>
+          <MyNavbar />
+          <Maincontain>
+            <Switch>
+              <Route
+                path="/scenicSpot/:city"
+                render={(props) => (
+                  <City key={props.match.params.city} {...props} />
+                )}
+              />
 
-            <Route path="*">
-              <NotFoundPage />
-            </Route>
-          </Switch>
-        </Maincontain>
-      </>
-    </Router>
+              <Route path="/scenicSpot">
+                <ScenicSpot />
+              </Route>
+
+              <Route path="*">
+                <NotFoundPage />
+              </Route>
+            </Switch>
+          </Maincontain>
+        </>
+      </Router>
+    </div>
   )
 }
 
-export default App
+export default withRouter(App)
